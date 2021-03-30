@@ -4,7 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FollowMyTrack: Tracks for vagabond</title>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
+  <script defer src="client.js"></script>
 </head>
+
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+  <div class="uk-navbar-center">
+    {{#if login}}
+    <div class="uk-navbar-center-left">
+      <div>
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="#">{{login}}</a></li>
+        </ul>
+      </div>
+    </div>
+    {{/if}}
+    <a class="uk-navbar-item uk-logo" href="/">FollowMyTrack</a>
+    <div class="uk-navbar-center-right">
+      <div>
+        <ul class="uk-navbar-nav">
+          <li><a href="/users/register">Sign-up</a></li>
+        </ul>
+        {{#if login}}
+        <ul class="uk-navbar-nav">
+          <li><a href="/users/exit">Exit</a></li>
+        </ul>
+        {{/if}}
+      </div>
+    </div>
+
+  </div>
+</nav>
+
 
 <body>
   {{{body}}}
