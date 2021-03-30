@@ -1,0 +1,21 @@
+{
+  "name": "followmytrack",
+  "version": "1.0.0",
+  "description": "Routing for tourists and vagabonds",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chalexan/followmytrack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chalexan/followmytrack/issues"
+  },
+  "homepage": "https://github.com/chalexan/followmytrack#readme"
+}
