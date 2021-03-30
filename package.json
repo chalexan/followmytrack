@@ -17,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/chalexan/followmytrack/issues"
   },
-  "homepage": "https://github.com/chalexan/followmytrack#readme"
+  "homepage": "https://github.com/chalexan/followmytrack#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "connect-mongo": "^4.4.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.12.2",
+    "sha256": "^0.2.0"
+  }
 }
