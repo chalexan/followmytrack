@@ -9,8 +9,7 @@ function protect(req, res, next) {
 }
 
 router.get('/', protect, async (req, res) => {
-  console.log(req.session.username);
-  res.render('index');
+  res.render('index', { login: req.session.username });
 });
 
 module.exports = router;
