@@ -28,6 +28,11 @@ router.get('/personal', protect, async(req, res) => {
   res.render('personal', { login: req.session.username, id: req.session.uid, tracks });
 });
 
+router.get('/delete/:id', async (req, res) => {
+  await Track.deleteOne({ _id: req.params.id });
+  res.redirect('/personal');
+});
+
 router.get('/:id', async (req, res) => {
   const track = await Track.findById(req.params.id);
   res.render('tracking', { login: req.session.username, id: req.session.uid, track });

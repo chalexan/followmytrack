@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+require('dotenv').config();
 
 const { connect, dbPath } = require('./connectDb');
 
@@ -31,7 +32,7 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.listen(3002, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Server Started');
 });
 
