@@ -1,0 +1,40 @@
+<div class="uk-container">
+  <h3>Personal tracks</h3>
+  {{#each tracks}}
+  <div class="uk-card uk-card-default uk-width-1-2@m">
+    <div class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+          <img class="uk-border-circle" width="80" height="80" src="images/icon.jpg">
+        </div>
+        <div class="uk-width-expand">
+          <h3 class="uk-card-title uk-margin-remove-bottom">{{this.trackname}}</h3>
+          <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{this.distance}}</time></p>
+        </div>
+      </div>
+    </div>
+    <div class="uk-card-body">
+      <div id="mapp{{this._id}}" style="height:200px; width: 400px;"></div>
+      <script>
+        var map = new ol.Map({
+          target: 'mapp{{this._id}}',
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM()
+            }),
+          ],
+          view: new ol.View({
+            center: ol.proj.fromLonLat([{{ this.s_Lon }}, {{ this.s_Lat }}]),
+          zoom: 11
+          })
+        });
+      </script>
+      <p>{{this.trackdescription}}</p>
+    </div>
+    <div class="uk-card-footer">
+      <a href="/{{this._id}}" class="uk-button uk-button-text">Read more</a>
+    </div>
+  </div>
+  <hr class="uk-divider-icon">
+  {{/each}}
+</div>

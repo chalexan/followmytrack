@@ -1,1 +1,32 @@
-index
+<script defer src="map4.js"></script>
+<div class="uk-container">
+  <h2>New personal track</h2>
+  <form method="POST" action="/new">
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <b>Track name:</b>
+        <input class="uk-input" name="trackname" size="100" type="text" required>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <b>Description:</b>
+        <input class="uk-input" name="trackdescription" size="100" type="text">
+      </div>
+    </div>
+    <div id="button-cont"></div>
+    <hr class="uk-divider-icon">
+    <div id="details">
+
+    </div>
+    <div style="height: 400px;" id="mapid"></div>
+    <input class="uk-input" id="sLon" name="s_Lon" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="sLat" name="s_Lat" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="distArea" name="distance" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="timeArea" name="time" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="startArea" name="start" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="endArea" name="end" style="visibility: hidden" size="100" type="text">
+    <input class="uk-input" id="user-id" name="userid" style="visibility: hidden" size="100" type="text" value={{id}}>
+  </form>
+</div>
+</div>
