@@ -14,6 +14,7 @@ router.post('/login', async (req, res) => {
   const user = await User.findOne({ login, password: sha256(password) });
   if (user) {
     req.session.username = login;
+    req.session.uid = user._id;
   }
   res.redirect('/');
 });
@@ -26,7 +27,9 @@ router.post('/register', async (req, res) => {
   const { login, password } = req.body;
   const passwordHashed = sha256(password);
   await User.create({ login, password: passwordHashed });
+  const id = await User.findOne({ login, password: passwordHashed });
   req.session.username = login;
+  req.session.uid = id._id;
   res.redirect('/');
 });
 
