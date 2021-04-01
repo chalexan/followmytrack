@@ -5,9 +5,11 @@ const trackSchema = new mongoose.Schema({
   trackname: String,
   trackdescription: String,
   start: String,
+  startH: String,
   s_Lon: Number,
   s_Lat: Number,
   end: String,
+  endH: String,
   distance: String,
   time: String,
 });

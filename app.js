@@ -31,7 +31,7 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.listen(3002, () => {
+app.listen(3005, () => {
   console.log('Server Started');
 });
 
