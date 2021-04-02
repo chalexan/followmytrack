@@ -5,6 +5,8 @@ const startPosH = document.getElementById('startPosH').value;
 const endPosH = document.getElementById('endPosH').value;
 const sLon = document.getElementById('sLon').value;
 const sLat = document.getElementById('sLat').value;
+const eLon = document.getElementById('eLon').value;
+const eLat = document.getElementById('eLat').value;
 const ascArea = document.getElementById('asc-area');
 const descArea = document.getElementById('desc-area');
 
@@ -41,3 +43,29 @@ L.geoJSON(myLines, {
 }
 
 getGeoJson();
+
+document.addEventListener('click', (event) => {
+  if (event.target.dataset.id) {
+    async function getGPX() {
+      const ftch = await fetch('https://api.openrouteservice.org/v2/directions/foot-hiking/gpx', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': '5b3ce3597851110001cf62484a7a6137e035499bb536ba601a7aea06'},
+        body: JSON.stringify({ "coordinates":[[sLon, sLat],[eLon, eLat]] }),
+      });
+      const answer = await ftch.text();
+      const resp = await fetch(`/gpx/${trackId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'gpx': answer }),
+      });
+      const link = await resp.text();
+      document.querySelector('.get-gpx-link').remove();
+      document.querySelector('#download-link').style.visibility = "visible";
+      document.querySelector('#download-link').href = link;
+      return;
+    }
+     getGPX();
+  }
+})

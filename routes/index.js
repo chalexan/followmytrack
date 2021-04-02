@@ -1,4 +1,5 @@
 const express = require('express');
+const write = require('write');
 const Track = require('../models/track');
 const User = require('../models/user');
 
@@ -23,8 +24,13 @@ router.post('/new', async (req, res) => {
 });
 
 router.get('/personal', protect, async (req, res) => {
-  const tracks = await Track.find().sort({ createdAt: -1 });
+  const tracks = await Track.find({ userid: req.session.uid }).sort({ createdAt: -1 });
   res.render('personal', { login: req.session.username, id: req.session.uid, tracks });
+});
+
+router.post('/gpx/:id', async (req, res) => {
+  write.sync(`public/gpx/${req.params.id}.gpx`, req.body.gpx);
+  res.send(`gpx/${req.params.id}.gpx`);
 });
 
 router.get('/delete/:id', async (req, res) => {
