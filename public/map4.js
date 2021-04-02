@@ -3,6 +3,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);
 
 let arrCoords = [];
 let arrCoordsHopper = [];
+let arrCoordsGPX = [];
 const startArea = document.getElementById('startArea');
 const endArea = document.getElementById('endArea');
 const startAreaHopper = document.getElementById('startAreaHopper');
@@ -11,6 +12,8 @@ const distArea = document.getElementById('distArea');
 const timeArea = document.getElementById('timeArea');
 const sLon = document.getElementById('sLon');
 const sLat = document.getElementById('sLat');
+const eLon = document.getElementById('eLon');
+const eLat = document.getElementById('eLat');
 
 const buttonCont = document.getElementById('button-cont');
 const details = document.getElementById('details');
@@ -24,6 +27,8 @@ async function onMapClick(e) {
   if (arrCoords.length < 2) {
     arrCoords.push(`${e.latlng.lng},${e.latlng.lat}`);
     arrCoordsHopper.push(`${e.latlng.lat},${e.latlng.lng}`);
+    arrCoordsGPX.push(e.latlng.lng);
+    arrCoordsGPX.push(e.latlng.lat);
     L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap);
     sLon.value = e.latlng.lng;
     sLat.value = e.latlng.lat;
@@ -33,6 +38,8 @@ async function onMapClick(e) {
     endArea.value = arrCoords[1];
     startAreaHopper.value = arrCoordsHopper[0];
     endAreaHopper.value = arrCoordsHopper[1];
+    eLon.value = arrCoordsGPX[0];
+    eLat.value = arrCoordsGPX[1];
     buttonCont.innerHTML = `<button class="uk-button uk-button-primary" id="mapForm">Save</button>`;
     details.innerHTML = ` <b>Track details:</b>
     <span uk-icon="location"></span><span id="dist-area">distance</span>

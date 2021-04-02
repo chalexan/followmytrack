@@ -7,6 +7,8 @@
   <span uk-icon="clock"></span><span id="time-area">{{track.time}} </span>
   <span uk-icon="arrow-up"></span><span id="asc-area"> - </span>
   <span uk-icon="arrow-down"></span><span id="desc-area"> - </span>
+  <a href='#' class='get-gpx-link' data-id="{{track._id}}" style="margin-left: 10px;"> Get GPX</a>
+  <a href='#' id='download-link' style="visibility: hidden; margin-left: 10px;"> Download</a>
   <div style="height: 400px;" id="mapid2"></div>
   <input class="uk-input" id="trackId" value="{{track._id}}" style="visibility: hidden" size="100" type="text">
   <input class="uk-input" id="startPos" value="{{track.start}}" style="visibility: hidden" size="100" type="text">
@@ -15,4 +17,6 @@
   <input class="uk-input" id="endPosH" value="{{track.endH}}" style="visibility: hidden" size="100" type="text">
   <input class="uk-input" id="sLon" value="{{track.s_Lon}}" style="visibility: hidden" size="100" type="text">
   <input class="uk-input" id="sLat" value="{{track.s_Lat}}" style="visibility: hidden" size="100" type="text">
+  <input class="uk-input" id="eLon" value="{{track.e_Lon}}" style="visibility: hidden" size="100" type="text">
+  <input class="uk-input" id="eLat" value="{{track.e_Lat}}" style="visibility: hidden" size="100" type="text">
 </div>

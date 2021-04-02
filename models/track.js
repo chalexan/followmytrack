@@ -8,6 +8,8 @@ const trackSchema = new mongoose.Schema({
   startH: String,
   s_Lon: Number,
   s_Lat: Number,
+  e_Lon: Number,
+  e_Lat: Number,
   end: String,
   endH: String,
   distance: String,
