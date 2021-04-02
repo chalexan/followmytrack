@@ -12,6 +12,6 @@ const trackSchema = new mongoose.Schema({
   endH: String,
   distance: String,
   time: String,
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Track', trackSchema);

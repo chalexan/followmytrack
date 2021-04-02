@@ -15,7 +15,6 @@ router.get('/', protect, async (req, res) => {
 });
 
 router.post('/new', async (req, res) => {
-console.log(req.body);
   const user = await User.findById(req.body.userid);
   if (user) {
     await Track.create(req.body);
@@ -23,8 +22,8 @@ console.log(req.body);
   res.redirect('/personal');
 });
 
-router.get('/personal', protect, async(req, res) => {
-  const tracks = await Track.find();
+router.get('/personal', protect, async (req, res) => {
+  const tracks = await Track.find().sort({ createdAt: -1 });
   res.render('personal', { login: req.session.username, id: req.session.uid, tracks });
 });
 
