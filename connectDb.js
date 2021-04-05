@@ -7,8 +7,9 @@ const options = {
   useFindAndModify: false,
   };
 
-//  const dbPath = 'mongodb+srv://c:Protekt2019@cluster0.qju1t.mongodb.net/followmytrack?retryWrites=true&w=majority';
-const dbPath = process.env.DB_PATH;
+//  const dbPath = 'mongodb+srv://c:Protekt2020@cluster0.qju1t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// const dbPath = process.env.DB_PATH;
+const dbPath = 'mongodb://localhost:27017/followmytrack';
 const connect = () => {
   mongoose.connect(dbPath, options)
   .then(() => console.log('Connected to DB'))

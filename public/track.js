@@ -44,7 +44,16 @@ L.geoJSON(myLines, {
 
 getGeoJson();
 
-document.addEventListener('click', (event) => {
+document.addEventListener('click', async (event) => {
+  if (event.target.id === 'share-link') {
+    const getShareLink = await fetch(`/share/${event.target.dataset.tid}`);
+    const sLink = await getShareLink.text();
+    console.log(sLink);
+    event.target.href = `${sLink}`;
+    event.target.innerText = `${sLink}`;
+    event.target.id = 'sLink';
+  }
+
   if (event.target.dataset.id) {
     async function getGPX() {
       const ftch = await fetch('https://api.openrouteservice.org/v2/directions/foot-hiking/gpx', {
